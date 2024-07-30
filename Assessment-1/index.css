@@ -1,0 +1,190 @@
+:root {
+  --header_background_color: #fff;
+  --header_gray_color: #b8bbbd;
+  --body_background_color: #f7f8f9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: var(--body_background_color);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+  background-color: var(--header_background_color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+}
+
+header .content .logo img {
+  height: 40px;
+  color: var(--body_background_color);
+}
+
+header .vertical-line {
+  width: 2px;
+  height: 80%;
+  border: none;
+  border-radius: 20%;
+  margin-left: 30px;
+  margin-right: 15px;
+
+  background-color: var(--header_gray_color);
+  opacity: 35%;
+}
+
+header .search-bar input {
+  width: 100%;
+  padding: 8px;
+  padding-left: 35px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-size: medium;
+  color: var(--header_gray_color);
+
+  background-image: url("SearchIcon.svg");
+  background-repeat: no-repeat;
+  background-position: 5px 46%;
+  background-size: 20px;
+}
+
+header .user {
+  display: flex;
+  align-items: center;
+}
+
+header .user img {
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+header .user span {
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px;
+}
+
+.column {
+  width: 30%;
+  flex: auto;
+}
+
+.column h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #858694;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  color: #c8c8cf;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* https://caniuse.com/?search=-webkit-line-clamp */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tag {
+  --circle_background_size: 27px;
+
+  width: var(--circle_background_size);
+  height: var(--circle_background_size);
+  line-height: var(--circle_background_size);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+
+.date {
+  font-size: 13px;
+  font-weight: bold;
+  color: #ccd1d9;
+}
+
+.red {
+  color: #e74c3c;
+}
+
+.green {
+  color: #27ae60;
+}
+
+.purple {
+  color: #9b59b6;
+}
+
+.background_blue {
+  background-color: #3498db;
+}
+
+.background_red {
+  background-color: #e74c3c;
+}
+
+.background_purple {
+  background-color: #9b59b6;
+}
+
+@media screen and (max-width: 900px) {
+  .column {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 90%;
+  }
+}
