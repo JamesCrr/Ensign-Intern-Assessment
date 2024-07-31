@@ -1,6 +1,6 @@
 export default function HomeItemCard(props) {
   return (
-    <div className="flex items-start justify-between my-8">
+    <div className="flex items-start justify-between my-8 p-4 border-2 rounded-md border-transparent hover:border-amber-200 transition-all duration-200">
       <div className="flex items-start">
         <img className="w-14 sm:w-14 md:w-20" src={props.item.image} alt="Image of Item" />
         {/* Text Content */}
@@ -13,7 +13,7 @@ export default function HomeItemCard(props) {
         </div>
       </div>
 
-      <p>${props.item.price}</p>
+      <p>${props.item.price.toFixed(2)}</p>
     </div>
   );
 }

@@ -1,9 +1,12 @@
-import { useState, useEffect, useContext } from "react";
-import { CartContext } from "../App.jsx";
+import { useState, useEffect } from "react";
+import useCartStore from "../../store/useCartStore";
 import CartItemCard from "../components/CartItemCard.jsx";
 
 export default function CartPage() {
-  const { cart, addItemToCart, removeItemToCart } = useContext(CartContext);
+  const cart = useCartStore((state) => state.cart);
+  const totalItemsInCart = useCartStore((state) => state.totalItemsInCart);
+  const addItemToCart = useCartStore((state) => state.addItemToCart);
+  const removeItemFromCart = useCartStore((state) => state.removeItemFromCart);
   const [totalPrice, setTotalPrice] = useState(0.0);
 
   useEffect(() => {
@@ -12,7 +15,7 @@ export default function CartPage() {
       newtotal += cart[itemId]["item"].price * cart[itemId]["count"];
     }
     setTotalPrice(newtotal.toFixed(2));
-  }, [cart]);
+  }, [totalItemsInCart]);
 
   return (
     <>
@@ -20,12 +23,12 @@ export default function CartPage() {
         {Object.keys(cart).map((itemId, index) => {
           return (
             <CartItemCard
-              key={index}
+              key={itemId}
               item={cart[itemId]["item"]}
               itemCount={cart[itemId]["count"]}
               onAddCount={() => addItemToCart(cart[itemId]["item"])}
               onRemoveCount={() => {
-                removeItemToCart(itemId);
+                removeItemFromCart(itemId);
               }}
             />
           );

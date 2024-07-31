@@ -1,15 +1,21 @@
-# Assumptions and Technical Decisions
+# Assessment 2 Assumptions and Technical Decisions
 
 ## Assumptions
 
-- No login
+- No user authentication (login)
 
 ## Technical Decisions
 
-### Why Vite + React over other frameworks? (Next.js)
+### Why React Router over other routers?
 
-- Next.js is more opininated, bullkier seems overkill for a SPA
+- Most famililar with it
 
-### Why native context over other libraries?
+### Why Vite + React over other React frameworks? (Next.js)
 
-### Why tailwind?
+- Next.js is bullkier, overkill for a SPA. Don't need SSR or SSG features.
+
+### Why Zustand over other state management libraries (Redux) or React Context?
+
+- Less boilerplate
+- Renders components that have changes based on store
+- Built in local storage feature

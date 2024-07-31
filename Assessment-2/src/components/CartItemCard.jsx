@@ -1,4 +1,4 @@
-import OwnButton from "../components/OwnButton.jsx";
+import Button from "./Button.jsx";
 
 export default function CartItemCard(props) {
   return (
@@ -8,13 +8,13 @@ export default function CartItemCard(props) {
         <h1>{props.item.title}</h1>
       </div>
       <div className="flex justify-between items-center gap-x-3">
-        <OwnButton customClassName={"p-0.5 text-lg"} onClickFunc={props.onRemoveCount}>
+        <Button customClassName={"p-0.5 text-lg"} onClickFunc={props.onRemoveCount}>
           -
-        </OwnButton>
+        </Button>
         <p className="text-base md:text-lg font-semibold">{props.itemCount}</p>
-        <OwnButton customClassName={"p-0.5 text-lg"} onClickFunc={props.onAddCount}>
+        <Button customClassName={"p-0.5 text-lg"} onClickFunc={props.onAddCount}>
           +
-        </OwnButton>
+        </Button>
       </div>
       <p className="w-20 text-right text-base md:text-lg font-semibold">
         ${(props.item.price * props.itemCount).toFixed(2)}

@@ -1,11 +1,13 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { CartContext } from "../App.jsx";
-import OwnButton from "../components/OwnButton.jsx";
+import useCartStore from "../../store/useCartStore";
+import useNotificationStore from "../../store/useNotificationStore";
+import Button from "../components/Button.jsx";
 
 export default function ItemPage() {
   let link_state = useLocation();
-  const { cart, addItemToCart } = useContext(CartContext);
+  const addItemToCart = useCartStore((state) => state.addItemToCart);
+  const addToQueue = useNotificationStore((state) => state.addToQueue);
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -20,13 +22,14 @@ export default function ItemPage() {
       </div>
 
       <div className="flex justify-center my-10">
-        <OwnButton
+        <Button
           onClickFunc={() => {
             addItemToCart(link_state.state.item);
+            addToQueue(Date.now());
           }}
         >
           Add to Cart
-        </OwnButton>
+        </Button>
       </div>
     </div>
   );
